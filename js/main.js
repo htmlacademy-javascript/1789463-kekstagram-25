@@ -8,7 +8,5 @@ function checkLengthString(x, max) {
     return true;
   }
   return false;
-
-  console.log(2, 5);
 }
 
