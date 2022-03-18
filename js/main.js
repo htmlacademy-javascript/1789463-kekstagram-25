@@ -1,14 +1,3 @@
-function getRandomNum(min, max) {
-  return Math.round(Math.random() * (max - min));
-}
+import {getPhoto} from './data.js';
 
-getRandomNum(2, 10);
-
-function checkLengthString(str, maxlength) {
-  if (str.length <= maxlength) {
-    return true;
-  }
-  return false;
-}
-
-checkLengthString('advadfv', 20);
+getPhoto();
