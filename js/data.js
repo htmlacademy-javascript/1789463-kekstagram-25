@@ -54,7 +54,7 @@ const createDescriptionPhoto = (index) => {
 
 const getPhoto = () => {
   const photo = [];
-  for (let i = 0; i <=25; i++) {
+  for (let i = 1; i <=25; i++) {
     photo.push(createDescriptionPhoto(i));
   }
 
