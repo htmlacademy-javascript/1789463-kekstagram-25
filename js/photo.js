@@ -16,6 +16,7 @@ pictureCase.forEach(({comments, likes, url}) => {
   pictureFragment.appendChild(pictureElement);
 });
 
+
 getPictures.appendChild(pictureFragment);
 
 window.console.log(getPictures);
