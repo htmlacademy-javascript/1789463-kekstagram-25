@@ -9,8 +9,10 @@ function checkLengthString(str, length) {
   return str.length <= length;
 }
 
-checkLengthString('advadfv', 20);
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+const isEnterKey = (evt) => evt.key === 'Enter';
 
 const getRandomArrayElement = (elements) => elements[getRandomNum(0, elements.length - 1)];
 
-export {getRandomNum, checkLengthString, getRandomArrayElement};
+export {getRandomNum, checkLengthString, getRandomArrayElement, isEnterKey, isEscapeKey};
