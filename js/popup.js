@@ -7,7 +7,7 @@ const commentsLoader = document.querySelector('.comments-loader');
 // const description = bigPicture.querySelector('.social__caption');
 const socialCommentCount = document.querySelector('.social__comment-count');
 const bigPictureCancel = document.querySelector('.big-picture__cancel');
-// const pictureImg = document.querySelector('.picture__img');
+const pictureImg = document.querySelector('.picture__img');
 
 
 const onPopupEscKeydown = (evt) => {
@@ -34,11 +34,11 @@ function closeModal() {
   document.removeEventListener('keydown', onPopupEscKeydown);
 }
 
-bigPicturesImg.addEventListener('click', () => {
+pictureImg.addEventListener('click', () => {
   openModal();
 });
 
-bigPicturesImg.addEventListener('keydown', (evt) => {
+pictureImg.addEventListener('keydown', (evt) => {
   if (isEnterKey(evt)) {
     openModal();
   }

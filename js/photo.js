@@ -25,5 +25,6 @@ const clearSimilarList = () => {
   getPictures.innerHTML = '';
 };
 
+renderSimilarList();
 
 export {renderSimilarList, clearSimilarList};
