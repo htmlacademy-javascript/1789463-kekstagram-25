@@ -32,8 +32,7 @@ function closeModal() {
   bigPicture.classList.add('hidden');
   clearSimilarList();
   document.removeEventListener('keydown', onPopupEscKeydown);
-};
-
+}
 
 bigPicturesImg.addEventListener('click', () => {
   openModal();
