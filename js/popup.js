@@ -1,10 +1,10 @@
-import { clearSimilarList, renderSimilarList } from './photo.js';
 import { isEscapeKey, isEnterKey } from './util.js';
 
 const bigPicture = document.querySelector('.big-picture');
 const bigPicturesImg = document.querySelector('.big-picture__img');
 const commentsLoader = document.querySelector('.comments-loader');
-// const description = bigPicture.querySelector('.social__caption');
+const bodySelector = document.querySelector('body');
+const description = bigPicture.querySelector('.social__caption');
 const socialCommentCount = document.querySelector('.social__comment-count');
 const bigPictureCancel = document.querySelector('.big-picture__cancel');
 const pictureImg = document.querySelector('.picture__img');
@@ -17,12 +17,32 @@ const onPopupEscKeydown = (evt) => {
   }
 };
 
-function openModal() {
+function socialComment(data) {
+  return `<li class="social__comment">
+    <img class="social__picture"
+    src= ${data.avatar}
+    alt= ${data.name} width="35" height="35">
+    <p class="social__text"> ${data.message} </p>
+    </li>`;
+}
+
+const getUserComments = (data) => {
+  const userComments = data.map((comment) => socialComment(comment));
+  return userComments.join('');
+};
+
+
+function openModal (photo)  {
   bigPicture.classList.remove('hidden');
-  document.body.classList.add('modal-open');
-  socialCommentCount.classList.add('hidden');
   commentsLoader.classList.add('hidden');
-  renderSimilarList();
+  socialCommentCount.classList.add('hidden');
+  document.body.classList.add('modal-open');
+
+  bigPicturesImg.children[0].src = photo.url;
+  bigPicture.querySelector('.likes-count').textContent = photo.likes;
+  bigPicture.querySelector('.comments-count').textContent = photo.comments.length;
+  bigPicture.querySelector('.social__comments').innerHTML = getUserComments(photo.comments);
+  description.textContent = photo.description;
 
   document.addEventListener('keydown', onPopupEscKeydown);
 }
@@ -30,8 +50,9 @@ function openModal() {
 
 function closeModal() {
   bigPicture.classList.add('hidden');
-  clearSimilarList();
-  document.removeEventListener('keydown', onPopupEscKeydown);
+  bodySelector.classList.add('modal-open');
+
+  document.addEventListener('keydown', onPopupEscKeydown);
 }
 
 pictureImg.addEventListener('click', () => {
