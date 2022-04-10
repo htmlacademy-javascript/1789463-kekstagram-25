@@ -1,16 +1,6 @@
-function getRandomNum(a, b) {
-  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
-  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-}
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const getRandomItem = (items) => items[getRandomNumber(0, items.length - 1)];
+const checkLength = (string, maxLength) => string.length <= maxLength;
+const isEscapeKey = (evt) => evt.key === 'Escape';
 
-function checkLengthString(str, length) {
-  return str.length <= length;
-}
-
-checkLengthString('advadfv', 20);
-
-const getRandomArrayElement = (elements) => elements[getRandomNum(0, elements.length - 1)];
-
-export {getRandomNum, checkLengthString, getRandomArrayElement};
+export { getRandomNumber, checkLength, getRandomItem, isEscapeKey };
