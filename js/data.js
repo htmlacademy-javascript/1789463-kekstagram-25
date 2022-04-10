@@ -31,11 +31,12 @@ const DESCRIPTIONS = [
   'Великолепная фотография',
 ];
 
-const commentAmount = 16;
+const СOMMENT_AMOUNT = 20;
+
 const createComments = (photoNumber) => {
   const comments = [];
 
-  for (let i = 1; i <= commentAmount; i++) {
+  for (let i = 1; i <= СOMMENT_AMOUNT; i++) {
     const comment = {
       id: photoNumber + i / 10,
       avatar: `img/avatar-${getRandomNumber(1, 6)}.svg`,
