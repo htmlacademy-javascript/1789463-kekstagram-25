@@ -18,19 +18,19 @@ const validateHashtag = (hashtagText) => {
   return hashtags.every(isValid);
 };
 
-const checkUniquenessOfHashtag = (hashtagText) => {
+const checkUniquenessHashtag = (hashtagText) => {
   const hashtags = createHashtagArray(hashtagText);
   return new Set(hashtags).size === hashtags.length;
 };
 
-const checkNumberOfHashtags = (hashtagText) => {
+const checkNumberHashtags = (hashtagText) => {
   const hashtags = createHashtagArray(hashtagText);
   return hashtags.length <= HASHTAGS_MAX;
 };
 
-pristine.addValidator(textHashtags, validateHashtag, 'Максимальная длина одного хэш-тега 20 символов, включая решётку', 3, true);
-pristine.addValidator(textHashtags, checkUniquenessOfHashtag, 'Один и тот же хэш-тег не может быть использован дважды', 2, true);
-pristine.addValidator(textHashtags, checkNumberOfHashtags, 'Нельзя указать больше пяти хэш-тегов', 1, true);
+pristine.addValidator(textHashtags, validateHashtag, 'Хэштег должен начинаться с #. Cодержать буквы и числа (не более 20 символов)', 3, true);
+pristine.addValidator(textHashtags, checkUniquenessHashtag, 'Один и тот же хэш-тег не может быть использован дважды', 2, true);
+pristine.addValidator(textHashtags, checkNumberHashtags, 'Нельзя указать больше пяти хэш-тегов', 1, true);
 
 const subscribeFormValidation = () => {
   form.addEventListener('submit', (evt) => {
