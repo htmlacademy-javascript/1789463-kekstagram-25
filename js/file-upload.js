@@ -1,6 +1,7 @@
 import { isEscapeKey } from './util.js';
 import { subscribeFormValidation } from './validation.js';
 import { initScaling } from './scale.js';
+import { initSlider } from './slider.js';
 
 const form = document.querySelector('.img-upload__form');
 const fileUpload = form.querySelector('#upload-file');
@@ -14,6 +15,7 @@ const openImageUpload = () => {
   document.body.classList.add('modal-open');
 
   initScaling();
+  initSlider();
 };
 
 const closeImageUpload = (listener) => {
