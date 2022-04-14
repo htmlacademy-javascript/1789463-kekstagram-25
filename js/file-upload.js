@@ -36,6 +36,10 @@ const onUploadCancel = () => {
   closeImageUpload(onImageEscKeydown);
 };
 
+const closeForm = () => {
+  closeImageUpload(onImageEscKeydown);
+};
+
 const onImageUpload = () => {
   openImageUpload();
   document.addEventListener('keydown', onImageEscKeydown);
@@ -48,4 +52,4 @@ const initUpload = () => {
 };
 
 
-export { initUpload };
+export { initUpload, closeForm };
